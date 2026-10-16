@@ -10,25 +10,6 @@ namespace App;
 
 class RouterSimple
 {
-    // La table de routage: un tableau à deux niveaux :
-    // Premier niveau : la méthode HTTP (GET, POST, PUT, DELETE)
-    // Deuxième niveau : le pattern d'URL → le handler (code à exécuter)
-    //
-    // Exemple après enregistrement de 3 routes :
-    // $this->routes = [
-    //     'GET'  => [
-    //         '/'        => function($request) { ... },
-    //         '/about'   => function($request) { ... },
-    //     ],
-    //     'POST' => [
-    //         '/contact' => function($request) { ... },
-    //     ],
-    // ];
-    //
-    // sans ce double niveau, si on a deux routes GET /articles
-    // et POST /articles elles s'écraseraient et on aurait qu'une route au lieu
-    // de 2 différentes 
-
     /** @var array<string, array<string, callable>> */
     private array $routes = [];
 

@@ -1,9 +1,4 @@
 <?php
-// src/Request.php
-// Cette classe encapsule la requête HTTP dans un objet.
-// Au lieu de manipuler directement $_GET, $_POST, $_SERVER
-// (les superglobales PHP), on les range ici une seule fois.
-// Équivalent simplifié de Symfony\Component\HttpFoundation\Request.
 
 namespace App;
 
