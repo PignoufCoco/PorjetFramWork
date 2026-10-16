@@ -11,18 +11,11 @@ class HomeController
 {
     private View $view;
 
-    // Partie à décommenter tant qu'on n'a pas de Container.php
-    public function __construct()
+    public function __construct(Container $container)
     {
-        $this->view = new View(__DIR__ . '/../../views');
+        $this->view = $container->get('view');
     }
 
-    // Constructeur à décommenter quand on a un Container.php.
-    // Commenter le constructeur ci-dessus.
-    // public function __construct(Container $container)
-    // {
-    //     $this->view = $container->get('view');
-    // }
 
     public function index(Request $request): Response
     {

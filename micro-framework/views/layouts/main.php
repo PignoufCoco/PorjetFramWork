@@ -35,7 +35,7 @@
 <body>
     <nav>
         <a href="/">Accueil</a>
-        <a href="/articles">Articles</a>
+        <a href="/articles">Contact</a>
         <a href="/about">À propos</a>
     </nav>
     <main>

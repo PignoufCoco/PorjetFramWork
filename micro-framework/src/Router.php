@@ -164,27 +164,17 @@ class Router
                 //   }
 
 
-                // Décommenter si pas de gestion des controllers.A commenter pour gérer les controllers
-                //$result = $handler($request, $params);
-
-
-                // Bloc à décommenter si gestion des controllers
+                // Le conteneur construit les controleurs et fournit leurs services.
                 if (is_array($handler)) {
                     [$controllerClass, $method] = $handler;
-                    $controller = new $controllerClass();
+                    $controller = $container
+                        ? $container->get($controllerClass)
+                        : new $controllerClass();
                     $result = $controller->$method($request, $params ?? []);
                 } else {
                     $result = $handler($request, $params ?? []);
                 }
 
-                // Bloc à commenter si pas de Container.php. Si Container.php commenter le bloc au dessus.
-                // if (is_array($handler)) {
-                //     [$controllerClass, $method] = $handler;
-                //     $controller = $container ? new $controllerClass($container) : new $controllerClass();
-                //     $result = $controller->$method($request, $params ?? []);
-                // } else {
-                //     $result = $handler($request, $params ?? []);
-                // }
 
                 // Même logique que la version statique :
                 // si le handler retourne déjà une Response, on la prend.
