@@ -105,6 +105,8 @@ class ArticleController
         ];
         $json = json_encode($contacts, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_THROW_ON_ERROR);
         rewind($file);
+        fwrite($file, $json);
+        fclose($file);
         
         
         return Response::redirect('/articles/show', 303);
